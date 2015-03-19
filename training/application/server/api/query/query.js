@@ -41,8 +41,8 @@ exports.remove = function(req, res) {
   var id = parseInt(req.params.id);
   for (var i = 0; i < queries.data.length; i++) {
     var query = queries.data[i];
-    if (query.employeeId === id) {
-      queries.splice(i, 1);
+    if (query.id === id) {
+      queries.data.splice(i, 1);
       fs.writeFile(dataSource, JSON.stringify(queries), function(err) {
         if (err) {
           return res.json(500, 'Query could not be removed');

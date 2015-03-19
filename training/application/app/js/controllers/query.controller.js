@@ -62,8 +62,8 @@ angular.module('hrmsPlus')
     }
     $scope.remove = function(id, event) {
       queries.remove(id).success(function(response) {
-        getAll();
         alert(response);
+        getAll();
       }).error(function(error) {
         alert(error);
       });
