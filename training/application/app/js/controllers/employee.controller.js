@@ -107,5 +107,4 @@ angular.module('hrmsPlus')
       });
       event.stopPropagation();
     }
-
   });

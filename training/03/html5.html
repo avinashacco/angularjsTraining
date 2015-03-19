@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF8">
+  <link rel='stylesheet' , href='../../css/bootstrap.css'></link>
+  <link rel='stylesheet' , href='app.css'></link>
+  <base href="/">
+</head>
+
+<body ng-app='html5Module' ng-controller='mainController'>
+  <div class='container'>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class='col-md-10'>
+        <div class='center'>
+          <strong>{{appName}}</strong>
+        </div>
+        <div class='well'>
+          <strong>Absolute URL (G):</strong> {{locationAbsUrl}}
+          <br />
+          <strong>Protocol (G):</strong> {{locationProtocol}}
+          <br />
+          <strong>Host (G):</strong> {{locationHost}}
+          <br />
+          <strong>Port (G):</strong> {{locationPort}}
+          <br />
+          <br />
+          <strong>URL (G/S):</strong> {{locationUrl}}
+          <br />
+          <button ng-click="setUrl()">Set URL</button>
+          <label>Replace:
+            <input type="checkbox" ng-model="replaceUrl" />
+          </label>
+          <br />
+          <br />
+          <strong>Path (G/S):</strong> {{locationPath}}
+          <br />
+          <button ng-click="setPath()">Set Path</button>
+          <br />
+          <br />
+          <strong>Search (G/S):</strong> {{locationSearch}}
+          <br />
+          <button ng-click="setSearch(1)">Set Search 1: single parameter and single value</button>
+          <br />
+          <button ng-click="setSearch(2)">Set Search 2: single parameter and multiple values</button>
+          <br />
+          <button ng-click="setSearch(3)">Set Search 3: remove parameter</button>
+          <br />
+          <button ng-click="setSearch(4)">Set Search 4: hash object (multiple parameters)</button>
+          <br />
+          <button ng-click="setSearch(5)">Set Search 5: clear search parameters</button>
+          <br />
+          <br />
+          <strong>Hash (G/S):</strong> {{locationHash}}
+          <br />
+          <button ng-click="setHash()">Set Hash</button>
+          <br />
+          <br />
+          <strong>locationChangeStartCounter:</strong> {{locationChangeStartCounter}}
+          <br />
+          <strong>locationChangeSuccessCounter:</strong> {{locationChangeSuccessCounter}}</div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+  <script src='../../js/jquery-1.11.2.js'></script>
+  <script src='../../js/bootstrap.js'></script>
+  <script src='../../js/angular.js'></script>
+  <script src='../../js/lodash.js'></script>
+  <script src='../../js/d3.js'></script>
+  <script src='html5.js'></script>
+</body>
+
+</html>
