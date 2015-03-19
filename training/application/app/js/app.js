@@ -18,16 +18,16 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'addEmployeeCtrl'
   }).when('/query', {
     templateUrl: 'views/query/queryList.html',
-    controller: 'addQueryCtrl'
+    controller: 'listQueryCtrl'
   }).when('/query/:id', {
     templateUrl: 'views/query/queryDetails.html',
-    controller: 'editQueryCtrl'
+    controller: 'viewQueryCtrl'
   }).when('/query/:id/edit', {
     templateUrl: 'views/query/queryAdd.html',
-    controller: 'viewQueryCtrl'
+    controller: 'editQueryCtrl'
   }).when('/query/add', {
     templateUrl: 'views/query/queryAdd.html',
-    controller: 'listQueryCtrl'
+    controller: 'addQueryCtrl'
   }).otherwise({
     redirectTo: '/home'
   });
