@@ -1,5 +1,6 @@
 <div>
-	<h4>Employees</h4>
+  <h4>Employees</h4>
+  <a class='btn btn-primary pull-right' href='#/employee/add'>Add Employee</a>
   <table class="table">
     <thead>
       <tr>
@@ -8,6 +9,7 @@
         <th>Last Name</th>
         <th>Designation</th>
         <th>Joining Date</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +19,14 @@
         <td>{{employee.personalDetails.name.last}}</td>
         <td>{{employee.currentEmploymentInfo.designation}}</td>
         <td>{{employee.currentEmploymentInfo.joiningDate | date: 'dd-mm-yyyy'}}</td>
+        <td>
+          <a class='btn btn-warning btn-sm' href='#/employee/{{employee.employeeId}}/edit/'>
+            <i class='glyphicon glyphicon-edit'></i>
+          </a>
+          <a class='btn btn-danger btn-sm' ng-click='remove(employee.employeeId, $event)'>
+            <i class='glyphicon glyphicon-trash'></i>
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>

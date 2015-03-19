@@ -4,14 +4,6 @@ angular.module('hrmsPlus')
   .factory('employee', function($http) {
     return {
       getAll: function(_successCb, _failureCb) {
-        /*return $http({
-          url: 'api/employees',
-          method: 'GET',
-        }).success(function(response) {
-          _successCb(response);
-        }).error(function(error) {
-          _failureCb(error);
-        });*/
         return $http({
           url: 'api/employees',
           method: 'GET',
@@ -27,9 +19,6 @@ angular.module('hrmsPlus')
         return $http({
           method: 'POST',
           url: 'api/employees/',
-          headers: {
-            'Content-Type': undefined
-          },
           data: data
         });
       },
@@ -37,12 +26,15 @@ angular.module('hrmsPlus')
         return $http({
           method: 'POST',
           url: 'api/employees/' + id,
-          headers: {
-            'Content-Type': undefined
-          },
+          data: data
+        });
+      },
+      remove: function(id, data) {
+        return $http({
+          method: 'DELETE',
+          url: 'api/employees/' + id,
           data: data
         });
       }
-
     }
   });
