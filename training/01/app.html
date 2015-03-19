@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF8">
+	    <link rel='stylesheet', href='../../css/bootstrap.css'></link>
+	    <link rel='stylesheet', href='app.css'></link>
+	</head>
+	<body ng-app='hrmsplus' ng-controller='AppController'>
+
+		<div class='row'>
+			<div class='col-lg-2'>
+			</div>
+			<div class='col-lg-8'>
+				<div class='center'>
+					<strong>{{appName}}</strong>
+				</div>
+				<br>
+				<div class='well'>
+					<div><strong>2 way binding and form elments</strong></div>
+					<div>
+						<input ng-model='employee.employeeID' ng-required='true' placeholder='Type something here...'></input>
+						<span> Saying hello to: {{employee.employeeID}}</span>						
+					</div>
+				</div>
+
+				<div class='well'>
+					<div><strong>Form elments</strong></div>
+					<div>
+						<label>Email* : </label>
+						<input type='email' ng-model='employee.email' ng-required=true></input>
+						<span class='note'>This is a required field. Try removing this field. It is automatically removed from the model</span>
+					</div>
+
+					<div>
+						<label>First Name: </label>
+						<input type='text' ng-model='employee.firstName' ng-minlength='3' ng-maxlength='10'></input>
+						<span class='note'>Min length 3 and max 10</span>
+					</div>
+
+					<div>
+						<label>Last Name: </label>
+						<input type='text' ng-model='employee.lastName' ng-pattern='/y$/'></input>
+						<span class='note'>Regex Ending with y</span>
+					</div>
+
+					<div>
+						<label>Password: </label>
+						<input type='password' ng-model='employee.password'></input>
+					</div>
+
+					<div>
+						<label>Contractor? </label>
+						<!--input type='checkbox' ng-model='employee.contractor'></input-->
+						<input type='checkbox' ng-model='employee.contractor' ng-true-value="'Contractor'" ng-false-value="'FTE'"></input>
+					</div>
+
+					<div>
+						<label>Gender: </label>
+						<!--input type='checkbox' ng-model='employee.contractor'></input-->
+						<label><input type='radio' ng-model='employee.gender' value='M'>Male</input></label>
+						<label><input type='radio' ng-model='employee.gender' value='F'>Female</input></label>
+					</div>
+					
+					<div>
+						<label>Band: </label>
+						<!--input type='checkbox' ng-model='employee.contractor'></input-->
+						<select ng-model='employee.band'>
+							<option value='B4L'>Band 4L</option>
+							<option value='B5H'>Band 5H</option>
+							<option value='B5L'>Band 5L</option>
+							<option value='B6'>Band 6</option>
+							<option value='B7'>Band 7</option>
+						</select>
+					</div>
+
+					<div>
+						<label>BU: </label>
+						<!--input type='checkbox' ng-model='employee.contractor'></input-->
+						<!--select ng-model='employee.bu' ng-options="select as label for value in array"-->
+						<select ng-model='employee.bu' ng-options="bu as bu.name for bu in metadata.bus" multiple>
+							<option value=''>-- Not selected -- </option>
+						</select>
+						<span class='note'>select as label for value in array</span>
+					</div>
+
+					<br>
+					<pre ng-bind='employee | json'></pre>
+					<div>					
+						<button type='submit'>Submit</button>	
+					</div>
+				</div>
+
+				<div class='well'>
+					<div><strong>ngModelController</strong></div>
+						<ol>
+							<li>Each ng-model directive creates an instance of ngModelController</li>
+							<li>The directive instance is available to all the directives on the element containing ng-model directive</li>
+							<li>Manages 2 way binding between model and view, checks for validity, modifications</li>
+							<li>Validity tracking - ng-valid, ng-invalid</li>
+							<li>Modification tracking - ng-pristine, ng-dirty</li>
+							<li>Contains 2 pipelines, which can be mutated by various directives on the element
+								<ol>
+									<li>$formatters --> Model to View </li>
+									<li>$parsers --> View to Model </li>
+								</ol>
+							</li>
+						</ol>
+					
+				</div>
+
+				<div class='well'>
+					<div><strong>ngFormController</strong></div>
+						<ol>
+							<li>Each ng-model directive creates an instance of ngModelController</li>
+						</ol>
+					
+				</div>
+			</div>
+			<div class='col-lg-2'>
+			</div>			
+		</div>
+
+		<script src='../../js/jquery-1.11.2.js'></script>
+		<script src='../../js/bootstrap.js'></script>
+		<script src='../../js/angular.js'></script>
+		<script src='../../js/lodash.js'></script>
+		<script src='../../js/d3.js'></script>
+		<script src='app.js'></script>
+	</body>
+</html>
