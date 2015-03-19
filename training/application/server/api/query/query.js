@@ -37,6 +37,23 @@ exports.add = function(req, res) {
   });
 }
 
+exports.remove = function(req, res) {
+  var id = req.params.id;
+  for (var i = 0; i < queries.data.length; i++) {
+    var query = queries.data[i];
+    if (query.employeeId === id) {
+      queries.splice(i, 1);
+      fs.writeFile(dataSource, JSON.stringify(queries), function(err) {
+        if (err) {
+          return res.json(500, 'Query could not be removed');
+        }
+        return res.json(200, "Query removed succesfully");
+      });
+    }
+  }
+  return res.json(404, 'Employee not found');
+}
+
 exports.update = function(req, res) {
   var id = req.params.id;
   var payload = req.body;

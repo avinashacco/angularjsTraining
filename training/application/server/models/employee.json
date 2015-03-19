@@ -1,67 +1,68 @@
-[{
-  "employeeId": "1466",
-  "lastModifiedAt": "2014-09-23T12:25:43.158Z",
-  "projects": [],
-  "teams": [],
-  "employmentHistory": [],
-  "currentEmploymentInfo": {
-    "joiningDate": "2014-07-07T00:00:00.000Z",
-    "jobCategory": "Employee",
-    "designation": "Software Engineer",
-    "reportingManagerId": "1066",
-    "currentBand": "B 7"
-  },
-  "qualification": [{
-    "degree": "MCA",
-    "institution": "IIT Roorkee",
-    "finalScore": "73"
+{
+  "data": [{
+    "employeeId": "1",
+    "lastModifiedAt": "2014-09-23T12:25:43.158Z",
+    "employmentHistory": [],
+    "currentEmploymentInfo": {
+      "joiningDate": "2014-07-07T00:00:00.000Z",
+      "jobCategory": "Employee",
+      "designation": "Software Engineer",
+      "reportingManagerId": "1066",
+      "currentBand": "B 7"
+    },
+    "qualification": [{
+      "degree": "MCA",
+      "institution": "IIT Roorkee",
+      "finalScore": "73"
+    }, {
+      "degree": "MCA",
+      "institution": "IIT Roorkee",
+      "finalScore": "8.34"
+    }],
+    "email": {
+      "work": "neha.sharma@accolite.com"
+    },
+    "personalDetails": {
+      "gender": "Female",
+      "dob": "1990-04-26T00:00:00.000Z",
+      "nationality": "Indian",
+      "name": {
+        "first": "Neha",
+        "last": "Sharma"
+      }
+    }
   }, {
-    "degree": "MCA",
-    "institution": "IIT Roorkee",
-    "finalScore": "8.34"
-  }],
-  "email": {
-    "work": "neha.sharma@accolite.com"
-  },
-  "personalDetails": {
-    "gender": "Female",
-    "dob": "1990-04-26T00:00:00.000Z",
-    "nationality": "Indian",
-    "name": {
-      "first": "Neha",
-      "last": "Sharma"
+    "employeeId": "2",
+    "lastModifiedAt": "2014-09-23T12:25:43.250Z",
+    "employmentHistory": [],
+    "currentEmploymentInfo": {
+      "joiningDate": "2014-07-14T00:00:00.000Z",
+      "jobCategory": "Employee",
+      "designation": "Senior Software Engineer",
+      "reportingManagerId": "1040",
+      "currentBand": "B 6",
+      "unit": "Banking",
+      "group": "Development"
+    },
+    "qualification": [{
+      "degree": "B.E(Electronics)",
+      "institution": "SDMCET",
+      "finalScore": "64"
+    }],
+    "email": {
+      "work": "rajesh.dayalamurthy@accolite.com",
+      "personal": "rajesh.edmurthy@live.com"
+    },
+    "personalDetails": {
+      "gender": "Male",
+      "dob": "1986-02-13T00:00:00.000Z",
+      "nationality": "Indian",
+      "panNo": "ASHPR2197Q",
+      "name": {
+        "first": "Rajesh",
+        "last": "Dayalamurthy"
+      }
     }
-  }
-}, {
-  "employeeId": "1477",
-  "lastModifiedAt": "2014-09-23T12:25:43.250Z",
-  "employmentHistory": [],
-  "currentEmploymentInfo": {
-    "joiningDate": "2014-07-14T00:00:00.000Z",
-    "jobCategory": "Employee",
-    "designation": "Senior Software Engineer",
-    "reportingManagerId": "1040",
-    "currentBand": "B 6",
-    "unit": "Banking",
-    "group": "Development"
-  },
-  "qualification": [{
-    "degree": "B.E(Electronics)",
-    "institution": "SDMCET",
-    "finalScore": "64"
   }],
-  "email": {
-    "work": "rajesh.dayalamurthy@accolite.com",
-    "personal": "rajesh.edmurthy@live.com"
-  },
-  "personalDetails": {
-    "gender": "Male",
-    "dob": "1986-02-13T00:00:00.000Z",
-    "nationality": "Indian",
-    "panNo": "ASHPR2197Q",
-    "name": {
-      "first": "Rajesh",
-      "last": "Dayalamurthy"
-    }
-  }
-}]
+  "lastId": 2
+}
