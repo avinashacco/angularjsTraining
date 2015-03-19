@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 };
 
 exports.show = function(req, res) {
-  var id = req.params.id;
+  var id = parseInt(req.params.id);
   for (var i = 0; i < queries.data.length; i++) {
     var query = queries.data[i];
     if (query.id === id) {
@@ -38,7 +38,7 @@ exports.add = function(req, res) {
 }
 
 exports.remove = function(req, res) {
-  var id = req.params.id;
+  var id = parseInt(req.params.id);
   for (var i = 0; i < queries.data.length; i++) {
     var query = queries.data[i];
     if (query.employeeId === id) {
@@ -51,11 +51,10 @@ exports.remove = function(req, res) {
       });
     }
   }
-  return res.json(404, 'Employee not found');
 }
 
 exports.update = function(req, res) {
-  var id = req.params.id;
+  var id = parseInt(req.params.id);
   var payload = req.body;
   for (var i = 0; i < queries.data.length; i++) {
     var query = queries.data[i];
@@ -69,5 +68,4 @@ exports.update = function(req, res) {
       });
     }
   }
-  return res.json(404, 'Query not found');
 }

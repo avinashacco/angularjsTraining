@@ -19,9 +19,6 @@ angular.module('hrmsPlus')
         return $http({
           method: 'POST',
           url: 'api/queries/',
-          headers: {
-            'Content-Type': undefined
-          },
           data: data
         });
       },
@@ -29,12 +26,15 @@ angular.module('hrmsPlus')
         return $http({
           method: 'POST',
           url: 'api/queries/' + id,
-          headers: {
-            'Content-Type': undefined
-          },
+          data: data
+        });
+      },
+      remove: function(id, data) {
+        return $http({
+          method: 'DELETE',
+          url: 'api/queries/' + id,
           data: data
         });
       }
-
     }
   });

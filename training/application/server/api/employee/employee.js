@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 };
 
 exports.show = function(req, res) {
-  var id = req.params.id;
+  var id = parseInt(req.params.id);
   for (var i = 0; i < employees.data.length; i++) {
     var employee = employees.data[i];
     if (employee.employeeId === id) {
