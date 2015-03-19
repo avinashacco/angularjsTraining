@@ -2,12 +2,7 @@
 
 angular.module('hrmsPlus')
   .controller('addQueryCtrl', function($scope, queries) {
-    $scope.data = {
-      queries: []
-    }
-    queries.getAll().success(function(response) {
-      $scope.data.queries = response.data;
-    });
+
 
   }).controller('editQueryCtrl', function($scope, queries) {
 
@@ -19,5 +14,10 @@ angular.module('hrmsPlus')
       $scope.data.queries = data;
     });
   }).controller('listQueryCtrl', function($scope, queries) {
-
+    $scope.data = {
+      queries: []
+    }
+    queries.getAll().success(function(response) {
+      $scope.data.queries = response.data;
+    });
   });

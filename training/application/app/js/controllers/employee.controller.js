@@ -2,12 +2,8 @@
 
 angular.module('hrmsPlus')
   .controller('addEmployeeCtrl', function($scope, employee) {
-    $scope.data = {
-      employees: []
-    }
-    employee.getAll().success(function(response) {
-      $scope.data.employees = response.data;
-    });
+
+
   }).controller('editEmployeeCtrl', function($scope, employee) {
 
   }).controller('viewEmployeeCtrl', function($scope, employee) {
@@ -18,5 +14,12 @@ angular.module('hrmsPlus')
       $scope.data.query = response;
     });
   }).controller('listEmployeeCtrl', function($scope, employee) {
+    $scope.data = {
+      employees: []
+    };
+    employee.getAll().success(function(response) {
+      console.log(response);
+      $scope.data.employees = response.data;
+    });
 
   });

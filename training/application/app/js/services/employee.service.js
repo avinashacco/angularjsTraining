@@ -3,7 +3,15 @@
 angular.module('hrmsPlus')
   .factory('employee', function($http) {
     return {
-      getAll: function() {
+      getAll: function(_successCb, _failureCb) {
+        /*return $http({
+          url: 'api/employees',
+          method: 'GET',
+        }).success(function(response) {
+          _successCb(response);
+        }).error(function(error) {
+          _failureCb(error);
+        });*/
         return $http({
           url: 'api/employees',
           method: 'GET',
