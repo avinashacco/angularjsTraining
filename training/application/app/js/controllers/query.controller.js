@@ -5,8 +5,8 @@ angular.module('hrmsPlus')
     $scope.data = {
       queries: []
     }
-    queries.getAll().success(function(data) {
-      $scope.data.queries = data;
+    queries.getAll().success(function(response) {
+      $scope.data.queries = response.data;
     });
 
   }).controller('editQueryCtrl', function($scope, queries) {
