@@ -20,6 +20,7 @@ app.use(express.static(__dirname+"/app"));
 
 app.use('/api/employees', require('./server/api/employee'));
 app.use('/api/queries', require('./server/api/query'));
+app.use('/api/serverCalls', require('./server/api/serverCalls'));
 
 router.get("/",function(req,res){
 	res.json({ message: 'Api up and running !' });
