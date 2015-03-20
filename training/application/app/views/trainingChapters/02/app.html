@@ -1,0 +1,287 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF8">
+  <link rel='stylesheet' , href='../../css/bootstrap.css'></link>
+  <link rel='stylesheet' , href='app.css'></link>
+</head>
+
+<body ng-app='hrmsplus' ng-controller='AppController'>
+  <div class='container'>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class='col-md-10'>
+        <div class='center'>
+          <strong>{{appName}}</strong>
+        </div>
+        <h5>Directives</h5>
+        <div class='well'>
+          <ol>
+            <li>What are Directives?</li>
+            <li>Stock AngularJS Directives
+              <ol>
+                <li>{{}} interpolation directive, {{directiveData.interpolationData}}
+                  <br> ngBind directive
+                  <span ng-bind='directiveData.ngBindData'></span>
+                </li>
+                <li>
+                  Binding HTML Content
+                  <p>{{directiveData.htmlData}}</p>
+                  <br> Binding Trusted HTML Content
+                  <p ng-bind-html="directiveData.htmlDataSafe"></p>
+                </li>
+                <li>
+                  Conditional Display ngShow, ngHide, ngIf, ngInclude, ngSwitch
+                  <div>
+                    ngShow Demo
+                    <input type='checkbox' ng-model='ngShowChecked'> <span ng-show='ngShowChecked'>ngShow Checked. Hence showing</span>
+                  </div>
+                  <div>
+                    ngHide Demo
+                    <input type='checkbox' ng-model='ngHideChecked'> <span ng-hide='ngHideChecked'>ngHide Un-Checked. Hence showing</span>
+                  </div>
+                  <div>
+                    ngIf Demo
+                    <input type='checkbox' ng-model='ngIfChecked'> <span ng-if='ngIfChecked'>ngIf Checked. Hence showing</span>
+                  </div>
+                  <div>
+                    ngInclude Demo
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" ng-model="includeFrag2" value=""> Include fragment 2
+                      </label>
+                    </div>
+                    <div ng-include="includeFrag2 ? 'template1.html' : 'template1.html'"></div>
+                  </div>
+                  <div>
+                    ngSwitch Demo
+                    <label>Type the number you want to show (1 to 5):
+                      <input type="text" ng-model="directiveData.showNumber" />
+                    </label>
+                    <br />
+                    <div ng-switch="directiveData.showNumber">
+                      <div ng-switch-when="1" style="width: 50px; background-color: red; text-align: center;">1</div>
+                      <div ng-switch-when="2" style="width: 50px; background-color: green; text-align: center;">2</div>
+                      <div ng-switch-when="3" style="width: 50px; background-color: yellow; text-align: center;">3</div>
+                      <div ng-switch-when="4" style="width: 50px; background-color: fuchsia; text-align: center;">4</div>
+                      <div ng-switch-when="5" style="width: 50px; background-color: orange; text-align: center;">5</div>
+                      <div ng-switch-default style="width: 50px; background-color: lightgray; text-align: center;">None</div>
+                    </div>
+                  </div>
+                </li>
+                <li>ngRepeat Demo</li>
+                <li>
+                  DOM event handlers
+                  <ol>
+                    <li>
+                      Click events: ngClick and ngDblClick
+                      <button class='btn btn-primary' ng-click='directiveFunction.clickEvent()'>{{directiveData.clickEventText}}</button>
+                      <button class='btn btn-primary' ng-dblclick='directiveFunction.dbClickEvent()'>{{directiveData.dbClickEventText}}</button>
+                    </li>
+                    <li>
+                      Mouse events: ngMousedown, ngMouseup, ngMouseenter, ngMouseleave, ngMousemove and ngMouseover
+                      <div class='well' ng-mousedown='directiveFunction.mousedown()' ng-mouseup='directiveFunction.mouseup()' ng-mouseenter='directiveFunction.mouseenter()' ng-mouseleave='directiveFunction.mouseleave()' ng-mousemove='directiveFunction.mousemove($event)'>
+                        <div class='col-md-3'>
+                          <label class='label label-primary'>
+                            {{directiveData.mouseLocationEventText}}
+                          </label>
+                        </div>
+                        <div class='col-md-3'>
+                          <label class='label label-primary'>
+                            {{directiveData.mousePressEventText}}
+                          </label>
+                        </div>
+                        <div class='col-md-3'>
+                          <label class='label label-primary'>
+                            {{directiveData.mouseMoveEventText}}
+                          </label>
+                        </div>
+                        <div class='col-md-3' ng-mouseover='directiveFunction.mouseover()' ng-mouseleave='directiveFunction.mouseleaveOver()'>
+                          <label class='label label-primary'>
+                            {{directiveData.mouseOverEventText}}
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      Keyboard events: ngKeydown, ngKeyup and ngKeypress
+                      <div class='row'>
+                        <div class='col-md-6'>
+                          <div class="form-group">
+                            <label>Type something:</label>
+                            <input type="text" class="form-control" ng-keydown="directiveFunction.onKeyDown($event)" ng-keyup="directiveFunction.onKeyUp($event)" ng-keypress="directiveFunction.onKeyPress($event)" />
+                          </div>
+                        </div>
+                        <div class='col-md-6'>
+                          <strong>KEY DOWN RESULT:</strong> {{directiveData.onKeyDownResult}}
+                          <br />
+                          <strong>KEY UP RESULT:</strong> {{directiveData.onKeyUpResult}}
+                          <br />
+                          <strong>KEY PRESS RESULT:</strong> {{directiveData.onKeyPressResult}}
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      Input change event (ngChange)
+                      <div class='row'>
+                        <div class='col-md-6'>
+                          <div class="form-group">
+                            <label>Input with change event:</label>
+                            <input type="text" class="form-control" ng-model="directiveData.editValue" ng-change="directiveFunction.onEditChange()" />
+                          </div>
+                          <div class="form-group">
+                            <label>Input without change event:</label>
+                            <input class="form-control" type="text" ng-model="directiveData.editValue" />
+                          </div>
+                        </div>
+                        <div class='col-md-6'>
+                          <strong>RESULT:</strong> {{directiveData.onEditChangeResult}}
+                        </div>
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+        <h5>Filters</h5>
+        <div class='well'>
+          <ol>
+            <li>What is a filter?</li>
+            <li>
+              Formatting Filters
+              <ol>
+                <li>
+                  Simple filter
+                  <div class='row'>
+                    <div class='col-md-6'>
+                      <strong>Original data:</strong> {{filterDate.stringData}}
+                      <br>
+                      <strong>Filtered data:</strong> {{filterDate.stringData | uppercase}}
+                    </div>
+                    <div class='col-md-6'>
+                      <pre>filterDate.stringData | uppercase</pre>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  Chained filters
+                  <div class="row">
+                    <div class='col-md-6'>
+                      <strong>Original data:</strong> {{filterDate.stringData}}
+                      <br>
+                      <strong>Filtered data:</strong> {{filterDate.stringData | lowercase | limitTo:7}}
+                    </div>
+                    <div class='col-md-6'>
+                      <pre>filterDate.stringData | lowercase | limitTo:7</pre>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  Date Filters
+                  <div class="row">
+                    <div class='col-md-6'>
+                      <strong>Original data:</strong> {{filterDate.dateData}}
+                      <br>
+                      <strong>Filtered data:</strong> {{filterDate.dateData | date:"dd MMM yyyy"}}
+                    </div>
+                    <div class='col-md-6'>
+                      <pre>filterDate.dateData | date:"dd MMM yyyy"</pre>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  Custom filter
+                  <div class='row'>
+                    <div class='col-md-6'>
+                      <label><strong>Original data:</strong>
+                        <input type="text" ng-model="numberData" />
+                      </label>
+                      <br>
+                      <strong>Filtered data (default):</strong> {{numberData | customCurrency}}
+                      <br />
+                      <strong>Filtered data (with parameters):</strong> {{numberData | customCurrency:"&euro;":",":".":2}}
+                    </div>
+                    <div class='col-md-6'>
+                      <pre>filterDate.dateData | date:"dd MMM yyyy"
+numberData | customCurrency:"&euro;":",":".":2</pre>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </li>
+            <li>
+              Array Filter
+              <ol>
+                <li>
+                  Simple substring filter
+                  <div>
+                    <label>Filter:
+                      <input type="text" ng-model="filterDate.simpleFilter" />
+                    </label>
+                    <br />
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>First name</th>
+                          <th>Last name</th>
+                          <th>Age</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="person in filterDate.people | filter:filterDate.simpleFilter">
+                          <td>{{person.firstName}}</td>
+                          <td>{{person.lastName}}</td>
+                          <td>{{person.age}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+                <li>
+                  Object's properties filter (alternative 1)
+                  <div>
+                    <label>Last name:
+                      <input type="text" ng-model="filterDate.objProp1LastNameFilter" />
+                    </label>
+                    <br />
+                    <label>Age:
+                      <input type="text" ng-model="filterDate.objProp1AgeFilter" />
+                    </label>
+                    <br />
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>First name</th>
+                          <th>Last name</th>
+                          <th>Age</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="person in filterDate.people | filter:{lastName: filterDate.objProp1LastNameFilter, age: filterDate.objProp1AgeFilter}">
+                          <td>{{person.firstName}}</td>
+                          <td>{{person.lastName}}</td>
+                          <td>{{person.age}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+  <script src='../../js/jquery-1.11.2.js'></script>
+  <script src='../../js/bootstrap.js'></script>
+  <script src='../../js/angular.js'></script>
+  <script src='../../js/lodash.js'></script>
+  <script src='../../js/d3.js'></script>
+  <script src='app.js'></script>
+</body>
+
+</html>

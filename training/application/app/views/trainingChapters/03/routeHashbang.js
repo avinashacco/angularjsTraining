@@ -7,7 +7,7 @@ app.config(['$routeProvider', function($routeProvider) {
   }).when('/view2/:id', {
     templateUrl: 'template2.html',
     controller: 'mainController'
-  }).when('/view2/:id1/:id2', {
+  }).when('/view2/:id/:id', {
     templateUrl: 'template2.html',
     controller: 'mainController'
   }).otherwise({
@@ -15,6 +15,5 @@ app.config(['$routeProvider', function($routeProvider) {
   });
 }])
 .controller("mainController", function($scope, $routeParams) {
-   $scope.appName = 'Angular JS Training Application';
   $scope.routeParams = $routeParams;
 });

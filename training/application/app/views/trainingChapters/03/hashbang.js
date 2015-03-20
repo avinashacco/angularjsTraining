@@ -1,8 +1,11 @@
-angular.module("mainModule", [])
-  .controller("mainController", function ($scope, $location)
-  {
-    function refreshValues()
-    {
+angular.module("hashbangModule", [])
+  .config(function($locationProvider) {
+    $locationProvider.html5Mode(false).hashPrefix("!");
+  })
+  .controller("mainController", function($scope, $location) {
+    $scope.appName = 'Angular JS Training Application';
+
+    function refreshValues() {
       $scope.locationAbsUrl = $location.absUrl();
       $scope.locationUrl = $location.url();
       $scope.locationProtocol = $location.protocol();
@@ -22,37 +25,30 @@ angular.module("mainModule", [])
 
     refreshValues();
 
-    $scope.$on("$locationChangeStart", function (event)
-    {
+    $scope.$on("$locationChangeStart", function(event) {
       $scope.locationChangeStartCounter++;
     });
 
-    $scope.$on("$locationChangeSuccess", function (event)
-    {
+    $scope.$on("$locationChangeSuccess", function(event) {
       $scope.locationChangeSuccessCounter++;
 
       refreshValues();
     });
 
-    $scope.setUrl = function ()
-    {
+    $scope.setUrl = function() {
       $location.url("newurl" + (++urlValueCounter));
 
-      if ($scope.replaceUrl === true)
-      {
+      if ($scope.replaceUrl === true) {
         $location.replace();
       }
     };
 
-    $scope.setPath = function ()
-    {
+    $scope.setPath = function() {
       $location.path("newpathvalue" + (++pathValueCounter));
     };
 
-    $scope.setSearch = function (setMode)
-    {
-      switch (setMode)
-      {
+    $scope.setSearch = function(setMode) {
+      switch (setMode) {
         case 1:
           // Single parameter and single value
           $location.search("param3", "value3");
@@ -77,8 +73,7 @@ angular.module("mainModule", [])
           // Clear search parameters
           var currParams = $location.search();
 
-          for (var paramName in currParams)
-          {
+          for (var paramName in currParams) {
             $location.search(paramName, null);
           }
 
@@ -86,8 +81,7 @@ angular.module("mainModule", [])
       }
     };
 
-    $scope.setHash = function ()
-    {
+    $scope.setHash = function() {
       $location.hash("newhashvalue" + (++hashValueCounter));
     };
   });
