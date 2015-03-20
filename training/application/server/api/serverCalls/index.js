@@ -5,10 +5,9 @@ var controller = require('./serverCall');
 
 var router = express.Router();
 
-router.get('/', controller.index);
-router.get('/:id', controller.show);
-router.post('/', controller.add);
-router.post('/:id', controller.update);
-router.delete('/:id', controller.remove);
+router.get('/:status', controller.get);
+router.post('/:status', controller.post);
+router.put('/:status', controller.put);
+router.delete('/:status', controller.delete);
 
 module.exports = router;

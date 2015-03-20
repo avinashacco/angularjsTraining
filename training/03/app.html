@@ -31,16 +31,70 @@
               </ol>
             </li>
             <li>
-              <h3>Simple GET call</h3>
-              <button ng-click="get(true)">Call server with SUCCESS</button>
-              <button ng-click="get(false)">Call server with ERROR</button>
-              <textarea class="logTextArea">{{httpServiceData.simpleGetCallResult}}</textarea>
+              GET call
+              <div class='row'>
+                <div class="col-md-3">
+                  <button class="btn btn-success btn-xs pull-right" ng-click="httpService.get('success')">Call server with SUCCESS</button>
+                  <br>
+                  <br>
+                  <button class="btn btn-danger btn-xs pull-right" ng-click="httpService.get('failure')">Call server with ERROR</button>
+                </div>
+                <div class="col-md-9">
+                  <textarea class="form-control" rows="3">{{httpServiceData.getResult}}</textarea>
+                </div>
+              </div>
             </li>
+            <li>
+              POST call
+              <br>
+              <div class='pull-right'>Post Data : {{httpServiceData.postData}}</div>
+              <div class='row'>
+                <div class="col-md-3">
+                  <button class="btn btn-success btn-xs pull-right" ng-click="httpService.post('success', httpServiceData.postData)">Call server with SUCCESS</button>
+                  <br>
+                  <br>
+                  <button class="btn btn-danger btn-xs pull-right" ng-click="httpService.post('failure', httpServiceData.postData)">Call server with ERROR</button>
+                </div>
+                <div class="col-md-9">
+                  <textarea class="form-control" rows="3">{{httpServiceData.postResult}}</textarea>
+                </div>
+              </div>
+            </li>
+            <!-- <li>
+              PUT call
+              <br>
+              <div class='pull-right'>PUT Data : {{httpServiceData.putData}}</div>
+              <div class='row'>
+                <div class="col-md-3">
+                  <button class="btn btn-success btn-xs pull-right" ng-click="httpService.put('success', httpServiceData.putData)">Call server with SUCCESS</button>
+                  <br>
+                  <br>
+                  <button class="btn btn-danger btn-xs pull-right" ng-click="httpService.put('failure', httpServiceData.putData)">Call server with ERROR</button>
+                </div>
+                <div class="col-md-9">
+                  <textarea class="form-control" rows="3">{{httpServiceData.putResult}}</textarea>
+                </div>
+              </div>
+            </li> -->
+            <!-- <li>
+              DELETE call
+              <div class='row'>
+                <div class="col-md-3">
+                  <button class="btn btn-success btn-xs pull-right" ng-click="httpService.delete('success')">Call server with SUCCESS</button>
+                  <br>
+                  <br>
+                  <button class="btn btn-danger btn-xs pull-right" ng-click="httpService.delete('failure')">Call server with ERROR</button>
+                </div>
+                <div class="col-md-9">
+                  <textarea class="form-control" rows="3">{{httpServiceData.deleteResult}}</textarea>
+                </div>
+              </div>
+            </li> -->
           </ol>
         </div>
-        <h5>$q Service</h5>
+        <!-- <h5>$q Service</h5>
         <div class='well'>
-        </div>
+        </div> -->
       </div>
       <div class="col-md-1"></div>
     </div>

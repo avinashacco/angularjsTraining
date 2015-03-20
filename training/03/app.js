@@ -3,57 +3,70 @@ angular.module('hrmsplus', [])
     $scope.appName = 'Angular JS Training Application';
 
     $scope.httpServiceData = {
-      simpleGetCallResult: ''
+      getResult: '',
+      postResult: '',
+      putResult: '',
+      deleteResult: '',
+      postData: {
+        'message': 'Sending data using post method'
+      },
+      putData: {
+        'message': 'Sending data using put method'
+      }
     };
     $scope.httpService = {
       get: function(isSuccess) {
-        serverCalls.get().success(function() {
-
-        }).error(function() {
-
+        console.log(isSuccess);
+        serverCalls.get(isSuccess).success(function(response) {
+          $scope.httpServiceData.getResult = response;
+        }).error(function(error) {
+          $scope.httpServiceData.getResult = error;
         });
       },
-      post: function(isSuccess) {
-        serverCalls.post().success(function() {
-
-        }).error(function() {
-
+      post: function(isSuccess, data) {
+        serverCalls.post(isSuccess, data).success(function(response) {
+          $scope.httpServiceData.postResult = response;
+        }).error(function(error) {
+          $scope.httpServiceData.postResult = error;
         });
       },
       delete: function(isSuccess) {
-        serverCalls.delete().success(function() {
-
-        }).error(function() {
-
+        serverCalls.delete(isSuccess).success(function(response) {
+          $scope.httpServiceData.deleteResult = response;
+        }).error(function(error) {
+          $scope.httpServiceData.deleteResult = error;
         });
       },
-      put: function(isSuccess) {
-        serverCalls.put().success(function() {
-
-        }).error(function() {
-
+      put: function(isSuccess, data) {
+        serverCalls.put(isSuccess, data).success(function(response) {
+          $scope.httpServiceData.putResult = response;
+        }).error(function(error) {
+          $scope.httpServiceData.putResult = error;
         });
       }
     }
   }]).factory('serverCalls', function($http) {
     return {
-      getAll: function(_successCb, _failureCb) {
-        return $http.get({
-          url: 'api/employees',
-          method: 'GET',
-        });
+      get: function(isSuccess) {
+        return $http.get('http://localhost:8089/api/serverCalls/' + isSuccess);
       },
-      add: function(data) {
+      post: function(isSuccess, data) {
         return $http({
           method: 'POST',
-          url: 'api/employees/',
+          url: 'http://localhost:8089/api/serverCalls/' + isSuccess,
           data: data
         });
       },
-      remove: function(id, data) {
+      delete: function(isSuccess) {
         return $http({
           method: 'DELETE',
-          url: 'api/employees/' + id,
+          url: 'http://localhost:8089/api/serverCalls/' + isSuccess
+        });
+      },
+      put: function(isSuccess, data) {
+        return $http({
+          method: 'PUT',
+          url: 'http://localhost:8089/api/serverCalls/' + isSuccess,
           data: data
         });
       }

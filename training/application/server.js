@@ -9,21 +9,29 @@ var app = express();
 var port = 8089;
 var router = express.Router();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-	res.sendfile('app/index.html');
+  res.sendfile('app/index.html');
 });
 
-app.use(express.static(__dirname+"/app"));
-
+app.use(express.static(__dirname + "/app"));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use('/api/employees', require('./server/api/employee'));
 app.use('/api/queries', require('./server/api/query'));
 app.use('/api/serverCalls', require('./server/api/serverCalls'));
 
-router.get("/",function(req,res){
-	res.json({ message: 'Api up and running !' });
+router.get("/", function(req, res) {
+  res.json({
+    message: 'Api up and running !'
+  });
 });
 
 app.listen(port);
