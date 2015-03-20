@@ -1,0 +1,152 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF8">
+	    <link rel='stylesheet', href='../../css/bootstrap.css'></link>
+	    <link rel='stylesheet', href='app.css'></link>
+	</head>
+	<body ng-app='hrmsplus' ng-controller='AppController'>
+
+		<div class='row'>
+			<div class='col-lg-2'>
+			</div>
+			<div class='col-lg-8'>
+				<div class='center'>
+					<strong>{{appName}}</strong>
+				</div>
+				<div class='well'>
+					<ol>
+						<li>
+							<strong>Directive Lifecycle</strong>
+							<pre>Directives are registered with the application using module.directive function call. During template compilation, AngularJS traverses the DOM and matches the elements, attributes, css classnames etc against registered directives. For each matching directive, compile function is called that returns link function.
+
+<strong>NOTE</strong>: Scope preparation happens after compilation is done but before link is called. So directive scope is not available inside compile but is available inside link function.</pre>
+						</li>
+						<li> 
+							<strong>Directive Fields</strong>
+							<ol>
+								<li>restrict: AEC </li>
+								<li>
+									<strong>compile</strong>
+									<button>I am a bootstrap normal button</button>
+									<button type='submit'>I am a bootstrap submit button</button>
+									<span class='note'>Compile function is called only once per usage of directive. Scope not available in compile</span>
+								</li>
+								<li>
+									<strong>Scope</strong><br>
+									<strong>scope:false </strong><scope-test-1></scope-test-1><br>
+									<strong>scope:true - </strong><scope-test-2></scope-test-2><br>
+									<strong>Isolated scope:{} - </strong><scope-test-3></scope-test-3><br>
+									<strong>scope:{} - </strong>
+									<scope-test-4 employee='employee' employee-i-d='employee.employeeID' first-name='{{employee.firstName}}' age='employee.age' gender='{{employee.gender}}'>
+									</scope-test-4><br>
+									<scope-test-5 handler='helloEmployee(employee)'></scope-test-5>
+
+									<!--strong>scope:{} - </strong><scope-test-3 employee='employee'></scope-test-3><br-->
+									<pre>{isolated1: '@attribute1',isolated2: '=attribute1',isolated3: '&amp;attribute1'}</pre>
+									<pre>@ -- Always returns a string. Change in outer scope updates value in directive scope but changes to directvie scope values do not reflect in outer scope.</pre>
+									<pre>= -- Always returns passed object. 2 way binding changes are reflected.</pre>
+									<pre>&amp; -- Bind external functions.. </pre>
+
+									<a href='http://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-2-isolate-scope'>Read more here</a>
+								</li>
+								<li><strong>template/templateUrl:</strong> Template HTML for directive </li>
+								<li>
+									<strong>require</strong>
+									<input type="text" ng-model="employee.employeeID" require-test-1></input>
+									<span class='note'>Required directive by default must be present. '?ngModel' makes dependency optional. '^ngModel' looks for first ngModel up the hierarchy. Required directives are automatically injected into link function 4th param, single controller or an array of required directive controllers.</span>
+									<table>
+										<tr><td>$parsers</td><td>Parser pipeline called when <strong>view</strong> value changes</td></tr>
+										<tr><td>$formatters</td><td>Formatter pipeline called when <strong>model</strong> value changes</td></tr>
+										<tr><td>$setValidity(validationErrorKey, isValid)</td><td>set model as valid or invalid for given type of validation error</td></tr>
+										<tr><td>$valid</td><td>true when model valid</td></tr>
+										<tr><td>$error</td><td>contains info on validation errors in model</td></tr>
+									</table>
+								</li>
+								<li>
+									<strong>link</strong>
+									<span class='note'>link function is called once per rendering of directive. Has scope available. It links compiled template of directive into DOM</span>
+								</li>
+
+								<li>priority, terminal, </li>
+							</ol>
+						</li>
+
+						<li> 							
+							<strong>Advanced Directives</strong>
+							<ol>
+								<li>
+									<strong>Transclusion</strong>
+									<span class='note'>transclude: true -- children of element on which directive is applied is transcluded under template element using ng-transclude dirctive</span>
+									<alert1 type='alert.type' close='closeAlert()'>
+										{{alert.msg}}
+									</alert1>
+
+									<span class='note'>transclude: 'element' -- element on which directive is applied is transcluded alongwith its attributes  under template element using ng-transclude dirctive</span>
+									<alert2 type='alert.type' close='closeAlert()'>
+										{{alert.msg}}
+									</alert2>
+
+									<pre>Transclusion is essentially doing move of DOM elements from one place (main directive element) to another (directive's templates). However the transcluded elements must still refer to their original scope. This is achieved by ng-transclude which creates a new scope that is child of scope in which directive whose contents are transcluded is used.</pre>
+
+									<pre>Content to be transcluded is taken out of DOM, compiled by $compile service result of which is a transclusion function which is passed to the directive for use.
+										var transclusionFunction = $compile('dom string to be transcluded');
+										transclusionFunction(scope) ; //here scope is the transcluded scope.
+									</pre>
+
+									<pre>Transclusion function can be accessed inside directive either in compile function or in directive controller
+										angular.module('test', []).directive('transclusionTest', function () {
+											return {
+												transclude: true,
+												compile: function (element, attrs, transcludeFn){},
+												controller: function ($scope, $transclude){},
+											};
+										});
+									</pre>									
+								</li>
+								<li>
+									<strong>Directive Controller</strong>
+									<ol>
+										<li>Special controllers that initialize and provide behavior for directive rather than scope.</li>
+										<li>
+											Defined using controller property on directive definition object
+											<pre>controller: function ($element, $attrs, $transclude)<br>$element -- directives DOM element, $attrs -- nomralized list of directives DOM element attributes , $transclude -- Transclusion function bound to current scope.</pre>
+											<pre>Link function always gets scope, element, and attrs as param. Controller gets them by DI. First controller is invoked, followed by pre link, followed by post link. </pre>
+										</li>
+										<li>
+											If an element contains multiple directives then for that element
+											1. Scope is created if necessary
+											2. Each directives controller is instantiated
+											3. Each directives prelink is called.
+											4. Any child elements are linked
+											5. Each directives postLink is called.
+										</li>
+										<li>
+											<accordion>
+												<accordion-group heading="Heading 1">
+													Group 1 contents
+												</accordion-group>
+												<accordion-group heading="Heading 2">
+													Group 2 contents
+												</accordion-group>
+											</accordion>
+										</li>
+									</ol>
+								</li>
+							</ol>
+						</li>
+					</ol>
+					<!--svg id='directivesDiagram'></svg-->
+				</div>
+			</div>
+			<div class='col-lg-2'>
+			</div>			
+		</div>
+
+		<script src='../../js/jquery-1.11.2.js'></script>
+		<script src='../../js/bootstrap.js'></script>
+		<script src='../../js/angular.js'></script>
+		<script src='../../js/lodash.js'></script>
+		<script src='../../js/d3.js'></script>
+		<script src='app.js'></script>
+	</body>
+</html>

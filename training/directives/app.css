@@ -1,0 +1,22 @@
+.center {
+	text-align: center;
+}
+
+.note {
+	margin-left: 5px;
+	color: green
+}
+
+.ng-valid {
+	border: solid black 1px;
+}
+
+.ng-invalid {
+	border: solid red 1px;
+}
+
+.unitRectangle {
+	height: 1px;
+	width: 1px;
+	border: 1px solid black;
+}

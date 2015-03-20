@@ -132,6 +132,7 @@ angular.module('hrmsplus', [])
     function isNumeric(value) {
       return (!isNaN(parseFloat(value)) && isFinite(value));
     }
+    
     return function(inputNumber, currencySymbol, decimalSeparator, thousandsSeparator, decimalDigits) {
       if (isNumeric(inputNumber)) {
         currencySymbol = (typeof currencySymbol === "undefined") ? "$" : currencySymbol;
