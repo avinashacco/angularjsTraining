@@ -27,7 +27,8 @@ exports.show = function(req, res) {
 
 exports.add = function(req, res) {
   employees.lastId += 1;
-  req.body.id = employees.lastId;
+  req.body.employeeId = employees.lastId;
+  req.body.currentEmploymentInfo.joiningDate = new Date();
   employees.data.push(req.body);
   fs.writeFile(dataSource, JSON.stringify(employees), function(err) {
     if (err) {
@@ -38,11 +39,11 @@ exports.add = function(req, res) {
 }
 
 exports.remove = function(req, res) {
-  var id = req.params.id;
+  var id = parseInt(req.params.id);
   for (var i = 0; i < employees.data.length; i++) {
     var employee = employees.data[i];
     if (employee.employeeId === id) {
-      employees.splice(i, 1);
+      employees.data.splice(i, 1);
       fs.writeFile(dataSource, JSON.stringify(employees), function(err) {
         if (err) {
           return res.json(500, 'Employee could not be removed');
@@ -51,11 +52,10 @@ exports.remove = function(req, res) {
       });
     }
   }
-  return res.json(404, 'Employee not found');
 }
 
 exports.update = function(req, res) {
-  var id = req.params.id;
+  var id = parseInt(req.params.id);
   var payload = req.body;
   for (var i = 0; i < employees.data.length; i++) {
     var employee = employees.data[i];
@@ -69,5 +69,4 @@ exports.update = function(req, res) {
       });
     }
   }
-  return res.json(404, 'Employee not found');
 }

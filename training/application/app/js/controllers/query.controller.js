@@ -51,11 +51,9 @@ angular.module('hrmsPlus')
     $scope.data = {
       queries: []
     }
-    var getAll = function() {
-      queries.getAll().success(function(response) {
-        $scope.data.queries = response.data;
-      });
-    }();
+    queries.getAll().success(function(response) {
+      $scope.data.queries = response.data;
+    });
 
     $scope.queryDetails = function(id) {
       $location.path('/query/' + id);
@@ -63,7 +61,9 @@ angular.module('hrmsPlus')
     $scope.remove = function(id, event) {
       queries.remove(id).success(function(response) {
         alert(response);
-        getAll();
+        queries.getAll().success(function(response) {
+          $scope.data.queries = response.data;
+        });
       }).error(function(error) {
         alert(error);
       });
