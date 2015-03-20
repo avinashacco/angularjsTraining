@@ -42,7 +42,8 @@ exports.put = function(req, res) {
   if (isSuccess) {
     return res.json({
       'status': 'success',
-      'message': 'PUT Request recieved'
+      'message': 'PUT Request recieved',
+      'data': data
     });
   } else {
     return res.send(500, 'PUT Executed with error');
