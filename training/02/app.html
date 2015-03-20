@@ -48,10 +48,10 @@
                     ngInclude Demo
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" ng-model="includeFrag2" value=""> Include fragment 2
+                        <input type="checkbox" ng-model="directiveData.includeFrag2" value=""> Include fragment 2
                       </label>
                     </div>
-                    <div ng-include="includeFrag2 ? 'template1.html' : 'template1.html'"></div>
+                    <div ng-include="directiveData.includeFrag2 ? 'template1.html' : 'template2.html'"></div>
                   </div>
                   <div>
                     ngSwitch Demo
@@ -69,7 +69,20 @@
                     </div>
                   </div>
                 </li>
-                <li>ngRepeat Demo</li>
+                <li>
+                  ngRepeat Demo
+                  <div class='row'>
+                    <div class='col-md-6'>
+                      <button class='btn btn-primary btn-xs' ng-click='directiveFunction.addArrayItem()'>
+                        Add Number to array
+                      </button>
+                      <br> Array: {{directiveData.array | json}}
+                    </div>
+                    <div class='col-md-6'>
+                      <p ng-repeat='item in directiveData.array'>{{item}}</p>
+                    </div>
+                  </div>
+                </li>
                 <li>
                   DOM event handlers
                   <ol>
@@ -204,8 +217,7 @@
                       <strong>Filtered data (with parameters):</strong> {{numberData | customCurrency:"&euro;":",":".":2}}
                     </div>
                     <div class='col-md-6'>
-                      <pre>filterDate.dateData | date:"dd MMM yyyy"
-numberData | customCurrency:"&euro;":",":".":2</pre>
+                      <pre>numberData | customCurrency:"&euro;":",":".":2</pre>
                     </div>
                   </div>
                 </li>

@@ -8,6 +8,8 @@ angular.module('hrmsplus', [])
     };
 
     $scope.directiveData = {
+      array:[1,2,3,4,5],
+      includeFrag2: true,
       ngBindData: 'NG Bind Data',
       interpolationData: 'Interpolation Data',
       htmlData: '<b>I am bold</b>',
@@ -32,6 +34,9 @@ angular.module('hrmsplus', [])
         } else {
           $scope.directiveData.clickEventText = 'I am clicked again';
         }
+      },
+      addArrayItem: function(){
+        $scope.directiveData.array.push($scope.directiveData.array.length+1);
       },
       dbClickEvent: function() {
         $scope.directiveData.dbClickEventCount += 1;
@@ -83,6 +88,8 @@ angular.module('hrmsplus', [])
       dateData: new Date(),
       numberData: 20032015.033,
       areAllPeopleSelected: false,
+      objProp1AgeFilter:'',
+      objProp1LastNameFilter:'',
       people: [{
         firstName: "John",
         lastName: "Doe",
