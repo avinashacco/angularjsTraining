@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF8">
+	    <link rel='stylesheet', href='../../css/bootstrap.css'></link>
+	    <link rel='stylesheet', href='app.css'></link>
+	</head>
+	<body ng-app='hrmsplus' ng-controller='AppController'>
+
+		<div class='row'>
+			<div class='col-lg-2'>
+			</div>
+			<div class='col-lg-8'>
+				<div class='center'>
+					<strong>{{appName}}</strong>
+				</div>
+				<br>
+				
+				<div class='well'>
+					<strong>Dynamic Compile HTML Template</strong>
+					<pre>
+						<!--span ng-bind-html="customCompiledAndEvaluatedHtmlSafe"></span-->
+						<span id="customCompiledAndEvaluatedHtml"></span>
+					</pre>
+				</div>
+
+				<div class='well'>
+					<div><strong>Creating a new scope programmatically</strong></div>
+					<pre>newScope.$parent === $scope --- {{newScopeIsChild}}</pre>
+					<pre>parentProp1Same --- {{parentProp1Same}}</pre>
+
+					<table>
+						<tr><td>Child Scope</td><td>Parent Scope Prop</td></tr>
+						<tr><td><pre>{{parentProp1 | json}}</pre></td><td><pre>{{getNewScope().parentProp1 | json}}</pre></td></tr>
+					</table>
+				</div>
+
+				<div class='well'>
+					<strong>Scope Event Bus</strong>
+				</div>				
+			</div>
+			<div class='col-lg-2'>
+			</div>			
+		</div>
+
+		<script src='../../js/jquery-1.11.2.js'></script>
+		<script src='../../js/bootstrap.js'></script>
+		<script src='../../js/angular.js'></script>
+		<script src='../../js/lodash.js'></script>
+		<script src='../../js/d3.js'></script>
+		<script src='app.js'></script>
+	</body>
+</html>
