@@ -1,0 +1,18 @@
+.center {
+	text-align: center;
+}
+
+.note {
+	color: green
+}
+
+.ng-pristine {
+	border: solid black 3px;
+}
+
+.ng-dirty {
+	border: solid red 3px;
+}
+.hover{
+	border:4px solid blue;
+}

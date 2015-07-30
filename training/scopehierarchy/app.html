@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF8">
+	    <link rel='stylesheet', href='../../css/bootstrap.css'></link>
+	    <link rel='stylesheet', href='app.css'></link>
+	</head>
+	<body ng-app='hrmsplus' hover-class="hover">
+
+		<div class='row' ng-controller='AppController' >
+			<div class='col-lg-2'>
+			</div>
+			<div class='col-lg-4' hover-class="hover">
+			
+				<p>{{controllerName}} </p>	
+				<div class='well' >
+					<div>
+						<input ng-model='contact' placeholder='Type email...'></input>
+						<span> {{email}}</span>
+						<button ng-click="add()">Add</button>						
+					</div>
+
+					<h2>Contacts</h2>
+				    <ul>
+						<li ng-repeat="contact in contacts" hover-class="hover"> {{ contact }} </li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="col-lg-4">
+				
+			</div>
+			<div class='col-lg-2'>
+			</div>			
+		</div>
+
+		<div class="row" ng-controller="AppController2">
+			<div class='col-lg-2'>
+			</div>
+			<div class='col-lg-4' hover-class="hover">			
+				<p>{{controllerName}}</p>	
+				<div class='well'>
+					<div>
+						<input ng-model='contact' placeholder='Type email...'></input>
+						<span> {{email}}</span>	
+						<button ng-click="add()">Add</button>	
+						
+						<h2>Contacts</h2>
+					    <ul>
+							<li ng-repeat="contact in contacts" hover-class="hover"> {{ contact }} </li>
+						</ul>					
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">				
+			</div>
+			<div class='col-lg-2'>
+			</div>
+		</div>
+
+		<script src='../../js/jquery-1.11.2.js'></script>
+		<script src='../../js/bootstrap.js'></script>
+		<script src='../../js/angular.js'></script>
+		<script src='../../js/lodash.js'></script>
+		<script src='../../js/d3.js'></script>
+		<script src='app.js'></script>
+	</body>
+</html>
