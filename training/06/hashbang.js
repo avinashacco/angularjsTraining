@@ -3,7 +3,7 @@ angular.module("hashbangModule", [])
     $locationProvider.html5Mode(false).hashPrefix("!");
   })
   .controller("mainController", function($scope, $location) {
-    $scope.appName = 'Angular JS Training Application';
+    $scope.appName = '$location Service Angular';
 
     function refreshValues() {
       $scope.locationAbsUrl = $location.absUrl();

@@ -1,6 +1,6 @@
 angular.module('hrmsplus', [])
   .controller('AppController', ['$scope', '$sce', function($scope, $sce) {
-    $scope.appName = 'Angular JS Training Application';
+    $scope.appName = 'Directives and Filters';
 
 
     var getKeyboardEventResult = function(keyEvent, keyEventDesc) {

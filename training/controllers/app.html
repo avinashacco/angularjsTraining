@@ -2,9 +2,21 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF8">
 	    <link rel='stylesheet', href='../../css/bootstrap.css'></link>
+      <link rel='stylesheet', href='../../css/common.css'></link>
 	    <link rel='stylesheet', href='app.css'></link>
 	</head>
 	<body ng-app='hrmsplus'>
+      <div class = "header row">
+        <div class='col-lg-3'>
+          <img src="../../images/logo.png">
+        </div>
+        <div class='col-lg-7 heading' >
+          <h1>Angular Js Training Application</h1>
+        </div>      
+        <div class='col-lg-2'>
+        </div>  
+
+    </div>
 
 		<div class='row' ng-controller='AppController' >
 			<div class='col-lg-2'>
@@ -14,9 +26,9 @@
 				<p>{{controllerName}} </p>	
 				<div class='well' >
 					<div>
-						<input ng-model='contact' placeholder='Type email...'></input>
+						<input ng-model='contact' placeholder='Type email...' class="form-control"></input>
 						<span> {{email}}</span>
-						<button ng-click="add()">Add</button>						
+						<button ng-click="add()" class="btn btn-primary">Add</button>						
 					</div>
 
 					<h2>Contacts</h2>

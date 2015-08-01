@@ -3,10 +3,22 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF8">
   <link rel='stylesheet' , href='../../css/bootstrap.css'></link>
+      <link rel='stylesheet', href='../../css/common.css'></link>
   <link rel='stylesheet' , href='app.css'></link>
 </head>
 
 <body ng-app='hashbangModule' ng-controller='mainController'>
+      <div class = "header row">
+        <div class='col-lg-3'>
+         <img src="../../images/logo.png">
+        </div>
+        <div class='col-lg-7 heading' >
+          <h1>Angular Js Training Application</h1>
+        </div>      
+        <div class='col-lg-2'>
+        </div>  
+
+    </div>
   <div class='container'>
     <div class="row">
       <div class="col-md-1"></div>
@@ -26,7 +38,7 @@
           <br />
           <strong>URL (G/S):</strong> {{locationUrl}}
           <br />
-          <button ng-click="setUrl()">Set URL</button>
+          <button ng-click="setUrl()" class="btn btn-primary" >Set URL</button>
           <label>Replace:
             <input type="checkbox" ng-model="replaceUrl" />
           </label>
@@ -34,25 +46,25 @@
           <br />
           <strong>Path (G/S):</strong> {{locationPath}}
           <br />
-          <button ng-click="setPath()">Set Path</button>
+          <button ng-click="setPath()" class="btn btn-primary" >Set Path</button>
           <br />
           <br />
           <strong>Search (G/S):</strong> {{locationSearch}}
           <br />
-          <button ng-click="setSearch(1)">Set Search 1: single parameter and single value</button>
+          <button ng-click="setSearch(1)" class="btn btn-primary" >Set Search 1: single parameter and single value</button>
           <br />
-          <button ng-click="setSearch(2)">Set Search 2: single parameter and multiple values</button>
+          <button ng-click="setSearch(2)" class="btn btn-primary" >Set Search 2: single parameter and multiple values</button>
           <br />
-          <button ng-click="setSearch(3)">Set Search 3: remove parameter</button>
+          <button ng-click="setSearch(3)" class="btn btn-primary" >Set Search 3: remove parameter</button>
           <br />
-          <button ng-click="setSearch(4)">Set Search 4: hash object (multiple parameters)</button>
+          <button ng-click="setSearch(4)" class="btn btn-primary" >Set Search 4: hash object (multiple parameters)</button>
           <br />
-          <button ng-click="setSearch(5)">Set Search 5: clear search parameters</button>
+          <button ng-click="setSearch(5)" class="btn btn-primary" >Set Search 5: clear search parameters</button>
           <br />
           <br />
           <strong>Hash (G/S):</strong> {{locationHash}}
           <br />
-          <button ng-click="setHash()">Set Hash</button>
+          <button ng-click="setHash()"  class="btn btn-primary" >Set Hash</button>
           <br />
           <br />
           <strong>locationChangeStartCounter:</strong> {{locationChangeStartCounter}}

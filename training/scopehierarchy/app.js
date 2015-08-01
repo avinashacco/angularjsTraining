@@ -1,19 +1,24 @@
 angular.module('hrmsplus', [])
-	.controller('AppController', ['$scope', function($scope){
+	.controller('parentController', ['$scope','$rootScope', function($scope,$rootScope){
 		
-		$scope.controllerName = "AppController";
-		$scope.contacts =["ashu@accolite.com"];
-		$scope.add = function(){
-			$scope.contacts.push($scope.contact);
-			$scope.contact ="";
+		$scope.controllerName = "ParentController";
+		$scope.contact = "parent";
+		$scope.destroyVar = function(){
+			delete $scope.contact;
 		}
 	}])
+	.controller('AppController', ['$scope','$rootScope', function($scope,$rootScope){
+		
+		$scope.controllerName = "Child Controller";
+		$scope.destroyVar = function(){
+			delete $scope.contact;
+		}
+		
+	}])
 	.controller('AppController2',['$scope',function($scope){
-		$scope.controllerName = "AppController2";
-		$scope.contacts =["civanesh@accolite.com"];
-		$scope.add = function(){
-			$scope.contacts.push($scope.contact);
-			$scope.contact ="";
+		$scope.controllerName = "Child Controller 2";
+		$scope.destroyVar= function(){
+			delete $scope.contact;
 		}
 	}])
 	.directive('hoverClass', ['$parse', function($parse){

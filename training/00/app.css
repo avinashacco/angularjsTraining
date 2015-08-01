@@ -5,11 +5,3 @@
 .note {
 	color: green
 }
-
-.ng-pristine {
-	border: solid black 3px;
-}
-
-.ng-dirty {
-	border: solid red 3px;
-}

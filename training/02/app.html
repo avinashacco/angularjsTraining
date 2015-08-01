@@ -3,11 +3,27 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF8">
   <link rel='stylesheet' , href='../../css/bootstrap.css'></link>
+      <link rel='stylesheet', href='../../css/common.css'></link>
   <link rel='stylesheet' , href='app.css'></link>
 </head>
 
 <body ng-app='hrmsplus' ng-controller='AppController'>
   <div class='container'>
+
+    <div class = "header row">
+      <div class='col-lg-3'>
+       <img src="../../images/logo.png">
+      </div>
+      <div class='col-lg-7 heading' >
+        <h1>Angular Js Training Application</h1>
+      </div>      
+      <div class='col-lg-2'>
+      </div>  
+
+    </div>
+
+
+
     <div class="row">
       <div class="col-md-1"></div>
       <div class='col-md-10'>
@@ -34,21 +50,21 @@
                   Conditional Display ngShow, ngHide, ngIf, ngInclude, ngSwitch
                   <div>
                     ngShow Demo
-                    <input type='checkbox' ng-model='ngShowChecked'> <span ng-show='ngShowChecked'>ngShow Checked. Hence showing</span>
+                    <input type='checkbox'  ng-model='ngShowChecked'> <span ng-show='ngShowChecked'>ngShow Checked. Hence showing</span>
                   </div>
                   <div>
                     ngHide Demo
-                    <input type='checkbox' ng-model='ngHideChecked'> <span ng-hide='ngHideChecked'>ngHide Un-Checked. Hence showing</span>
+                    <input type='checkbox'ng-model='ngHideChecked'> <span ng-hide='ngHideChecked'>ngHide Un-Checked. Hence showing</span>
                   </div>
                   <div>
                     ngIf Demo
-                    <input type='checkbox' ng-model='ngIfChecked'> <span ng-if='ngIfChecked'>ngIf Checked. Hence showing</span>
+                    <input type='checkbox'  ng-model='ngIfChecked'> <span ng-if='ngIfChecked'>ngIf Checked. Hence showing</span>
                   </div>
                   <div>
                     ngInclude Demo
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" ng-model="directiveData.includeFrag2" value=""> Include fragment 2
+                        <input type="checkbox"  ng-model="directiveData.includeFrag2" value=""> Include fragment 2
                       </label>
                     </div>
                     <div ng-include="directiveData.includeFrag2 ? 'template1.html' : 'template2.html'"></div>
@@ -56,7 +72,7 @@
                   <div>
                     ngSwitch Demo
                     <label>Type the number you want to show (1 to 5):
-                      <input type="text" ng-model="directiveData.showNumber" />
+                      <input type="text"  class="form-control" ng-model="directiveData.showNumber" />
                     </label>
                     <br />
                     <div ng-switch="directiveData.showNumber">

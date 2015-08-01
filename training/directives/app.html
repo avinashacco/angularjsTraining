@@ -2,9 +2,21 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF8">
 	    <link rel='stylesheet', href='../../css/bootstrap.css'></link>
+      <link rel='stylesheet', href='../../css/common.css'></link>
 	    <link rel='stylesheet', href='app.css'></link>
 	</head>
 	<body ng-app='hrmsplus' ng-controller='AppController'>
+      <div class = "header row">
+        <div class='col-lg-3'>
+          <img src="../../images/logo.png">
+        </div>
+        <div class='col-lg-7 heading' >
+          <h1>Angular Js Training Application</h1>
+        </div>      
+        <div class='col-lg-2'>
+        </div>  
+
+    </div>
 
 		<div class='row'>
 			<div class='col-lg-2'>
@@ -52,7 +64,7 @@
 								<li><strong>template/templateUrl:</strong> Template HTML for directive </li>
 								<li>
 									<strong>require</strong>
-									<input type="text" ng-model="employee.employeeID" require-test-1></input>
+									<input type="text" ng-model="employee.employeeID" require-test-1  class="form-control" ></input>
 									<span class='note'>Required directive by default must be present. '?ngModel' makes dependency optional. '^ngModel' looks for first ngModel up the hierarchy. Required directives are automatically injected into link function 4th param, single controller or an array of required directive controllers.</span>
 									<table>
 										<tr><td>$parsers</td><td>Parser pipeline called when <strong>view</strong> value changes</td></tr>

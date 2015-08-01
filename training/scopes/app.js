@@ -37,41 +37,41 @@ angular.module('hrmsplus', [])
 			}, 1000);
 		};
 
-		var testEventBus1 = function () {
-			$rootScope.$on('emitEvent', function (event, emitEventPayload) {
-				console.log('Handling emitEvent in $rootScope', emitEventPayload);
-			});
-			$scope.$on('emitEvent', function (event, emitEventPayload) {
-				console.log('Handling emitEvent in $scope', emitEventPayload);
-			});
+		// var testEventBus1 = function () {
+		// 	$rootScope.$on('emitEvent', function (event, emitEventPayload) {
+		// 		console.log('Handling emitEvent in $rootScope', emitEventPayload);
+		// 	});
+		// 	$scope.$on('emitEvent', function (event, emitEventPayload) {
+		// 		console.log('Handling emitEvent in $scope', emitEventPayload);
+		// 	});
 
-			var grandChildScope = $scope.$new();
-			grandChildScope.$on('emitEvent', function (event, emitEventPayload) {
-				console.log('Handling emitEvent in grandChildScope', emitEventPayload);
-			});
+		// 	var grandChildScope = $scope.$new();
+		// 	grandChildScope.$on('emitEvent', function (event, emitEventPayload) {
+		// 		console.log('Handling emitEvent in grandChildScope', emitEventPayload);
+		// 	});
 
-			$scope.$emit('emitEvent', {message: 'Emit event emitted at ' + new Date()});
-		};
+		// 	$scope.$emit('emitEvent', {message: 'Emit event emitted at ' + new Date()});
+		// };
 
-		var testEventBus2 = function () {
-			$rootScope.$on('broadcastEvent', function (event, emitEventPayload) {
-				console.log('Handling broadcastEvent in $rootScope', emitEventPayload);
-			});
-			$scope.$on('broadcastEvent', function (event, emitEventPayload) {
-				console.log('Handling broadcastEvent in $scope', emitEventPayload);
-			});
+		// var testEventBus2 = function () {
+		// 	$rootScope.$on('broadcastEvent', function (event, emitEventPayload) {
+		// 		console.log('Handling broadcastEvent in $rootScope', emitEventPayload);
+		// 	});
+		// 	$scope.$on('broadcastEvent', function (event, emitEventPayload) {
+		// 		console.log('Handling broadcastEvent in $scope', emitEventPayload);
+		// 	});
 
-			var grandChildScope = $scope.$new();
-			grandChildScope.$on('broadcastEvent', function (event, emitEventPayload) {
-				console.log('Handling broadcastEvent in grandChildScope', emitEventPayload);
-			});
+		// 	var grandChildScope = $scope.$new();
+		// 	grandChildScope.$on('broadcastEvent', function (event, emitEventPayload) {
+		// 		console.log('Handling broadcastEvent in grandChildScope', emitEventPayload);
+		// 	});
 
-			$scope.$broadcast('broadcastEvent', {message: 'Broadcast event emitted at ' + new Date()});
-		};
+		// 	$scope.$broadcast('broadcastEvent', {message: 'Broadcast event emitted at ' + new Date()});
+		// };
 
 
 		testScope1();
 		testCustomTempalteCompilation();
-		testEventBus1();
-		testEventBus2();
+		// testEventBus1();
+		// testEventBus2();
 	}]);
