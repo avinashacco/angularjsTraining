@@ -29,48 +29,59 @@
 					<strong>{{appName}}</strong>
 				</div>
 				<br>
-				<div class='well'>
+				<form class='well' class="form" name="userForm">
 					<div><strong>Form elments</strong></div>
-					<div>
-						<label>Email* : </label>
-						<input type='email' ng-model='employee.email' ng-required=true></input>
-						<span class='note'>This is a required field. Try removing this field. It is automatically removed from the model</span>
+					<div class="form-element">
+						<label class="col-md-2">Email* : </label>
+						<input type='email' name="email" ng-class="{red:userForm.email.$dirty && userForm.email.$invalid && userForm.email.$error}" class="form-control" ng-model='employee.email' ng-required=true></input>
+						<span class="note" ng-show="userForm.email.$dirty && userForm.email.$invalid">
+						  <span ng-show="userForm.email.$error.required">Email is required.</span>
+						  <span ng-show="userForm.email.$error.email">Invalid email address.</span>
+						</span>
 					</div>
 
-					<div>
-						<label>First Name: </label>
-						<input type='text' ng-model='employee.firstName' ng-minlength='3' ng-maxlength='10'></input>
-						<span class='note'>Min length 3 and max 10</span>
+					<div class="form-element" >
+						<label  class="col-md-2">First Name: </label>
+						<input type='text' ng-class="{red:userForm.firstname.$dirty && userForm.firstname.$invalid && userForm.firstname.$error}" name="firstname" class="form-control" ng-model='employee.firstName' ng-minlength='3' ng-maxlength='10'></input>
+						<span class="note" ng-show="userForm.firstname.$dirty && userForm.firstname.$invalid">
+						  <span ng-show="userForm.firstname.$error">Min length 3 and max 10</span>
+						</span>
 					</div>
 
-					<div>
-						<label>Last Name: </label>
-						<input type='text' ng-model='employee.lastName' ng-pattern='/y$/'></input>
-						<span class='note'>Regex Ending with y</span>
+					<div class="form-element" >
+						<label  class="col-md-2" >Last Name: </label>
+						<input type='text' ng-class="{red:userForm.lastname.$dirty && userForm.lastname.$invalid && userForm.lastname.$error}" name="lastname" class="form-control" ng-model='employee.lastName' ng-pattern='/y$/'></input>
+						<span class='note'></span>
+						<span class="note" ng-show="userForm.lastname.$dirty && userForm.lastname.$invalid">
+						  <span ng-show="userForm.lastname.$error">Regex Ending with y</span>
+						</span>
 					</div>
 
-					<div>
-						<label>Password: </label>
-						<input type='password' ng-model='employee.password'></input>
+					<div class="form-element" >
+						<label class="col-md-2">Password: </label>
+						<input type='password'  class="form-control" ng-model='employee.password'></input>
 					</div>
 
-					<div>
-						<label>Contractor? </label>
+					<div class="form-element" >
+						<label class="col-md-2">Contractor? </label>
 						<!--input type='checkbox' ng-model='employee.contractor'></input-->
-						<input type='checkbox' ng-model='employee.contractor' ng-true-value="'Contractor'" ng-false-value="'FTE'"></input>
+						<div class="col-md-10">
+							<input  type='checkbox' ng-model='employee.contractor' ng-true-value="'Contractor'" ng-false-value="'FTE'"></input>	
+						</div>
+						
 					</div>
 
-					<div>
-						<label>Gender: </label>
+					<div class="form-element" >
+						<label class="col-md-2">Gender: </label>
 						<!--input type='checkbox' ng-model='employee.contractor'></input-->
 						<label><input type='radio' ng-model='employee.gender' value='M'>Male</input></label>
 						<label><input type='radio' ng-model='employee.gender' value='F'>Female</input></label>
 					</div>
 					
-					<div>
-						<label>Band: </label>
+					<div class="form-element" >
+						<label class="col-md-2">Band: </label>
 						<!--input type='checkbox' ng-model='employee.contractor'></input-->
-						<select ng-model='employee.band'>
+						<select ng-model='employee.band' class="form-control">
 							<option value='B4L'>Band 4L</option>
 							<option value='B5H'>Band 5H</option>
 							<option value='B5L'>Band 5L</option>
@@ -79,8 +90,8 @@
 						</select>
 					</div>
 
-					<div>
-						<label>BU: </label>
+					<div class="form-element" >
+						<label class="col-md-2">BU: </label>
 						<!--input type='checkbox' ng-model='employee.contractor'></input-->
 						<!--select ng-model='employee.bu' ng-options="select as label for value in array"-->
 						<select ng-model='employee.bu' ng-options="bu as bu.name for bu in metadata.bus" multiple>
@@ -92,9 +103,11 @@
 					<br>
 					<pre ng-bind='employee | json'></pre>
 					<div>					
-						<button type='submit' >Submit</button>	
+						<button type='submit' class="btn btn-primary" ng-disabled="userForm.lastname.$dirty && userForm.lastname.$invalid ||
+  userForm.email.$dirty && userForm.email.$invalid ||
+  userForm.firstname.$dirty && userForm.firstname.$invalid " >Submit</button>	
 					</div>
-				</div>
+				</form>
 
 				<div class='well'>
 					<div><strong>ngModelController</strong></div>

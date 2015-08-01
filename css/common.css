@@ -1,0 +1,21 @@
+.header{
+	background : url('/images/header-gradient.png') center center repeat-x;
+	color: #d7e2e6;
+    margin-bottom: 20px;
+    padding: 0px 20px;
+    padding-top: 10px;
+}
+
+.header>.heading{
+	margin-top:-15px;
+}
+
+body{
+	background : url('/images/background.png') center center repeat-y;
+	background-size: contain;
+}
+
+.form-control{
+	display: inline-block;
+	width: inherit;
+}

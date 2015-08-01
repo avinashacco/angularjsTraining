@@ -3,5 +3,13 @@
 }
 
 .note {
-	color: green
+	color: red
+}
+
+.form-element{
+	height: 50px;
+}
+
+.red{
+	border:1px solid red;
 }
